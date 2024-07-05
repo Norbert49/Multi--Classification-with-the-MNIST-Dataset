@@ -1,0 +1,13 @@
+<-------------- Configuring Keras to Write the TensorBoard Log Files------------------>
+
+##Code
+from tensorflow.keras.callbacks import TensorBoard
+import time
+tensorboard_callback = TensorBoard(log_dir=f'./logs/mnist{time.time()}',
+histogram_freq=1, write_graph=True)
+
+#Model Fitting Call
+
+cnn.fit(X_train, y_train, epochs=10, batch_size=64,
+validation_split=0.1, callbacks=[tensorboard_callback])
+
